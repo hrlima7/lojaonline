@@ -26,6 +26,12 @@ public class ClienteService {
 				"Objeto não encontrado! id:" +id +", Tipo:" + Cliente.class.getName()));
 	}
 
+	
+	public Cliente insert(Cliente obj) {
+		obj.setId(null);
+		return repo.save(obj);
+		
+	}
 }
 
 
