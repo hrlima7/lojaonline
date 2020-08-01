@@ -1,5 +1,6 @@
 package br.com.roma.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,6 @@ public class CategoriaService {
 	
 	public Categoria buscar(Integer id) {
 		Optional <Categoria> obj = repo.findById(id);
-	
 		return obj.orElseThrow( () -> new ObjectNotFoundException(
 				"Objeto não encontrado! id:" +id +", Tipo:" + Categoria.class.getName()));
 	}
@@ -33,17 +33,18 @@ public class CategoriaService {
 	}
 	 public Categoria update(Categoria obj) {
 		 buscar(obj.getId());
-		 return repo.save(obj);
-		 
+		 return repo.save(obj);		 
 	 }
 	
-	 public void deletar(Integer id) {
-		  
-		 
+	 public void deletar(Integer id) { 	 
 		 repo.deleteById(id);
-		
-		
-		
+	
+	 }
+	 
+	 public List<Categoria> buscarTodos() {
+		return  repo.findAll();
+		 
+		 
 	 }
 	
 
