@@ -27,7 +27,7 @@ public class PedidoService {
 	}
 	
 	public Pedido insert (Pedido obj) {
-		
+		obj.setId(null);
 		return repo.save(obj);
 		
 	}
